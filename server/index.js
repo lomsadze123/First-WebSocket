@@ -20,9 +20,9 @@ io.on("connection", (socket) => {
   });
 
   socket.on("chat message", (message, room) => {
-    socket.to(room).emit("message", message);
-    socket.emit("message", message);
-    console.log(message);
+    const messageWithSender = { text: message, sender: socket.id };
+    socket.to(room).emit("message", messageWithSender);
+    socket.emit("message", messageWithSender);
     // io.to(room).emit("message", message); // Broadcast message to all connected clients
   });
 });
