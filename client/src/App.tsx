@@ -12,7 +12,7 @@ const App = () => {
   const [userId, setUsedId] = useState<string | undefined>("");
 
   useEffect(() => {
-    const newSocket = io("http://localhost:3001");
+    const newSocket = io("https://first-websocket.onrender.com");
     newSocket.on("connect", () => {
       console.log(`you connected with id: ${newSocket.id}`);
       setUsedId(newSocket.id);
