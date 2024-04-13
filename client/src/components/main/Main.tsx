@@ -34,7 +34,7 @@ const Main = () => {
       {joined ? (
         <h1 className="text-center mb-2 text-xl">You are join '{room}' room</h1>
       ) : (
-        <h1 className="text-center mb-2 text-xl">You are not joined yet</h1>
+        <h1 className="text-center mb-2 text-xl">You have not joined yet</h1>
       )}
       <ChatForm
         handleMessageChange={handleMessageChange}
@@ -45,6 +45,12 @@ const Main = () => {
         room={room}
       />
       <MessageList messages={messages} userId={userId} />
+      {!joined && (
+        <p className="text-2xl max-w-[600px] text-center mx-auto mt-20">
+          Ensure you and your chat partner enter the same room name, then simply
+          click 'join' to start messaging!
+        </p>
+      )}
     </main>
   );
 };
